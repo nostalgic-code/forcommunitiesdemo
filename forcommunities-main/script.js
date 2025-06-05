@@ -239,20 +239,22 @@ var tl = gsap.timeline();
 tl.from(".loader h3",{
     x:60,
     opacity:0,
-    delay:3,
+    delay:0.5,
     duration:1,
     stagger:.1
 })
 tl.to(".loader h3",{
     y:-60,
     opacity:0,
-    duration:.5,
-    stagger:.1
+    duration:1,
+    stagger:.1,
+    delay: 1
 })
 
 tl.to(".loader",{
-    opacity:0
-    
+    opacity:0,
+    duration: 0.5,
+    delay: 0.5
 })
 
 tl.from(".page1-content h1 span",{
@@ -265,7 +267,6 @@ tl.from(".page1-content h1 span",{
 
 tl.to(".loader",{
     display: "none"
-    
 })
 
 // Navbar scroll behavior
