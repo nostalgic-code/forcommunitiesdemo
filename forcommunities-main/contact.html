@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Section</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.875rem;
+    }
+
+    .nav a {
+      margin: 0 0.5rem;
+      color: #ccc;
+    }
+
+    .nav a.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .talk {
+      font-size: 0.75rem;
+      color: #fff;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 400;
+      margin-top: 4rem;
+      line-height: 1.2;
+    }
+
+    .contact {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 4rem;
+      font-size: 1rem;
+    }
+
+    .contact .email,
+    .contact .jobs {
+      text-align: right;
+    }
+
+    .section-divider {
+      border-top: 1px solid #333;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .locations {
+      display: block;
+    }
+
+    .location {
+      margin-bottom: 3rem;
+    }
+
+    .city {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .address {
+      margin-bottom: 1rem;
+    }
+
+    .time {
+      font-family: monospace;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="top-nav">
+      <div class="logo">kanesolutions</div>
+      <nav class="nav">
+        <a href="#">Home</a>
+        <a href="#">Work</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#" class="disabled">Contact</a>
+      </nav>
+      <div class="talk">Let's talk ↗</div>
+    </header>
+
+    <main class="hero">
+      <h1>
+
+        Partnering with businesses, communities, <br>
+        and visionaries to deliver solar solutions <br>
+        that power sustainable growth and lasting environmental impact.
+      </h1>
+    </main>
+
+    <section class="contact">
+      <div class="info">
+        <p>Get in touch</p>
+      </div>
+      <div class="email">
+        <p>New Business.</p>
+        <a href="mailto:hello@rejouice.com">hello@kaneSolutions.com</a>
+      </div>
+      <div class="jobs">
+        <p>Join the Team.</p>
+        <a href="mailto:jobs@rejouice.com">jobs@kaneSolutionscom</a>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="locations">
+      <div class="location">
+        <p class="city">Johannesburg</p>
+        <p class="address">
+          Unit B4, Boundary Office Park,<br>
+          11 Boundary Lane,<br>
+          Oakdene, Johannesburg, 7580<br>
+          South Africa
+        </p>
+        <p class="time" id="time-jhb"></p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function updateTime() {
+      const options = {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      };
+
+      const timeJHB = new Intl.DateTimeFormat('en-US', {
+        ...options,
+        timeZone: 'Africa/Johannesburg'
+      }).format(new Date());
+
+      document.getElementById('time-jhb').textContent = timeJHB;
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime();
+  </script>
+</body>
+</html>
