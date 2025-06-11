@@ -19,68 +19,118 @@
 
 
     <style>
-     
-.why-solar {
-  background: #ffffff;
-  padding: 4rem 2rem;
-  text-align: center;
-}
+ .why-solar {
+      background: #ffffff;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
 
-.why-solar h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #0f4171;
-}
+    .why-solar h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #0f4171;
+    }
 
-.reasons-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
 
-.reason-card {
-  background-color: #f9f9f9;
-  border: 1px solid #e0e0e0;
-  border-radius: 16px;
-  padding: 2rem 1.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .reason-card {
+      background-color: #f9f9f9;
+      border: 1px solid #e0e0e0;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
 
-.reason-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.08);
-}
+    .reason-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.08);
+    }
 
-.reason-card i {
-  font-size: 2.5rem;
-  color: #0f4171;
-  margin-bottom: 1rem;
-}
+    .reason-card i {
+      font-size: 2.5rem;
+      color: #0f4171;
+      margin-bottom: 1rem;
+    }
 
-.reason-card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-  color: #0f4171;
-}
+    .reason-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      color: #0f4171;
+    }
 
-.reason-card p {
-  font-size: 1rem;
-  color: #333;
-}
+    .reason-card p {
+      font-size: 1rem;
+      color: #333;
+    }
 
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      text-align: left;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 10000;
+    }
+
+    .modal-content h3 {
+      color: #0f4171;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .modal-content p {
+      color: #333;
+      font-size: 1rem;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #999;
+    }
+
+    .close:hover {
+      color: #0f4171;
+    }
 
     </style>
 </head>
 <body>
-    
+  
+  <!--
     <div class="loader">
         <h3>Clean</h3>
         <h3>Solar</h3>
-        <h3>Power</h3>      </div>    
-        
+        <h3>Power</h3>      
+      </div>    
+    -->
         <div class="main">
         <nav class="navbar">
             <div class="nav-left">
@@ -88,15 +138,14 @@
             </div>
             <div class="nav-center">
                 <a href="index.html">Home</a>
-                <a href="https://work-zonq.vercel.app/">Work</a>
-                <a href="about.html">About</a> 
-                <a href="https://kanesolutions.co.za/">Shop</a>
+                <a href="work.html">Work</a>
+                <a href="about.html">About</a>
                 <a href = "contact.html">Contact</a>
             </div>
             <div class="nav-right">
                 <button class="lets-talk">Let's Talk</button>
             </div>
-        </nav>        
+        </nav>       
         <div class="cursor-wrapper">
             <div class="cursor">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
@@ -133,7 +182,7 @@
       <div class="about-text">
         <p class="history-text">
           Our company was incepted in 2011. Our services company, For Communities Pty Ltd 
-          was incorporated in 2020 to serve communities.
+          was incorporated in 2020 to serve communities but we trade as KaneSolutions®.
         </p>
         
         <p class="impact-text">
@@ -148,20 +197,28 @@
   </div>
         
 
+
+  <!-- WHY GO SOLAR SECTION -->
 <section class="why-solar">
   <h2>Why Go Solar?</h2>
   <div class="reasons-grid">
-    <div class="reason-card">
+    <div class="reason-card"
+         data-title="Lower Energy Bills"
+         data-description="Solar panels significantly reduce your electricity bills by generating free energy from the sun. Over time, this leads to substantial savings and protection from rising utility costs.">
       <i class="fas fa-money-bill-wave"></i>
       <h3>Lower Energy Bills</h3>
       <p>Save up to 70% on your electricity costs.</p>
     </div>
-    <div class="reason-card">
+    <div class="reason-card"
+         data-title="Energy Independence"
+         data-description="With solar, you generate your own power, making you less dependent on load-shedding, power outages, or increasing electricity tariffs. It gives you control and peace of mind.">
       <i class="fas fa-battery-full"></i>
       <h3>Energy Independence</h3>
       <p>Reduce reliance on unreliable grid power.</p>
     </div>
-    <div class="reason-card">
+    <div class="reason-card"
+         data-title="Eco-Friendly"
+         data-description="Solar energy is clean and renewable. By switching, you're helping reduce harmful greenhouse gas emissions and contributing to a more sustainable, healthier planet.">
       <i class="fas fa-leaf"></i>
       <h3>Eco-Friendly</h3>
       <p>Decrease your carbon footprint and support a cleaner Earth.</p>
@@ -169,33 +226,19 @@
   </div>
 </section>
 
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3 id="modal-title">Modal Title</h3>
+    <p id="modal-description">Modal description goes here.</p>
+  </div>
+</div>
 
-        <div class="page3">
-            <div class="page3-top">
 
-                <h4 style="color:#0f4171;">Solar Solutions <span>Gallery</span></h4>
-                <div class="underlinewaladiv">
-                    <h2 style="color:#0f4171;">Every Panel Tells a Story</h2>
-                    <h2 style="color:#0f4171;">& Watch Our Installations</h2>
-                </div>
-            </div>
 
-            <div class="page3-elements">
-                <div class="box">
-                    <img src="https://plus.unsplash.com/premium_photo-1677993355347-92715eae6806?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
-                    <video autoplay muted loop src="bacground-clips.mov"></video>
-                </div>
-                <div class="box">
-                    <img src="image4house.jpg" alt="">
-                    <video autoplay muted loop src="background-clips2.mov"></video>
-                </div>
-                <div class="box">
-                    <img src="image1.jpg" alt="">
-                    <video autoplay muted loop src="background-clips3.mov"></video>
-                </div>
-            </div>
-        </div>
 
+      
 
         <section class="approach-section">
   <h2 STYLE="color: #0f4171;">Our approach.</h2>
@@ -217,7 +260,7 @@
   </div>
 </section>
 
-
+<!--
 
  <div class="page3-elements">
                 <div class="box">
@@ -235,7 +278,7 @@
             </div>
 
 
-
+          -->
 
 
 
@@ -295,13 +338,13 @@
 
 
 
-        <div class="cta-section">
+          <div class="cta-section">
             <div class="cta-content">
                 <h2>Ready to Harness Solar Power?</h2>
                 <p>Transform your energy future with our sustainable solutions</p>
                 <div class="cta-buttons">
                     <a href="contact.html" class="cta-button primary">Get Started</a>
-                    <a href="tel:+27123456789" class="cta-button secondary">Call Us Now</a>
+                    <a href="tel:+27 73 614 3163" class="cta-button secondary">Call Us Now</a>
                 </div>
             </div>
         </div>
@@ -311,10 +354,10 @@
                     <h3>KaneSolutions®</h3>
                     <p>Empowering communities through sustainable solar solutions.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/ForOurCommunities/?_ga=2.205317072.1744652362.1749544928-93513310.1748967560"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/kanesolutions?_ga=2.226331994.1744652362.1749544928-93513310.1748967560"><i class="fab fa-twitter"></i></a>
+                        <a href="https://g.page/KSForCommunities?gm&_ga=2.226331994.1744652362.1749544928-93513310.1748967560"><i class="fab fa-google"></i></a>
+                        <a href="https://www.instagram.com/for.communities/?hl=en&_ga=2.226331994.1744652362.1749544928-93513310.1748967560"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer-section quick-links">
@@ -329,9 +372,24 @@
                 <div class="footer-section contact-info">
                     <h4>Contact Us</h4>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</li>
-                        <li><i class="fas fa-phone"></i> +27 (0) 123 456 789</li>
-                        <li><i class="fas fa-envelope"></i> info@kanesolutions.co.za</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Unit B4, Boundary Office Park, 
+                            11 Boundary Lane, Oakdene, 
+                            Johannesburg, 7580</li>
+                        <li>
+                          <a href="tel:+27736143163">
+                            <i class="fas fa-phone"></i> +27 73 614 3163
+                          </a>
+                        </li>
+                        <li>
+                          <a href="tel:+27116755265">
+                            <i class="fas fa-phone"></i> +27 11 675 5265
+                          </a>
+                        </li>
+                        <li>
+                          <a href="mailto:info@kanesolutions.co.za">
+                            <i class="fas fa-envelope"></i> info@kanesolutions.co.za
+                          </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="footer-section newsletter">
@@ -348,7 +406,6 @@
             </div>
         </footer>
     </div>
- 
 
 
 
@@ -388,6 +445,39 @@
     });
   });
 </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.reason-card');
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const closeBtn = document.querySelector('.close');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const title = card.getAttribute('data-title');
+        const description = card.getAttribute('data-description');
+
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+
+        modal.style.display = 'block';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  });
+</script>
+
 
 </body>
 </html>
