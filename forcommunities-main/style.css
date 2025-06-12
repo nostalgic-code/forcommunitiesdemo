@@ -862,6 +862,16 @@ height: 100%;
 .footer-section {
     margin-bottom: 2rem;
 }
+.footer-section .footer-logo {
+    height: 250px;
+    width: auto;
+    margin-bottom: 3rem;
+    transition: transform 0.3s ease;
+}
+
+.footer-section .footer-logo:hover {
+    transform: scale(1.05);
+}
 
 .company-info h3 {
     font-family: joy;
