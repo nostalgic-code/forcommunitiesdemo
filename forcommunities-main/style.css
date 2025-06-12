@@ -442,7 +442,15 @@ height: 100%;
     font-weight: 500;
     transition: all 0.3s ease;
 }
+.nav-left .logo-image {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
 
+.nav-left .logo-image:hover {
+    transform: scale(1.05);
+}
 .nav-center {
     flex: 2;
     display: flex;
